@@ -18,12 +18,13 @@ namespace Lab8
                 {
                     Console.Clear();
                     int atBats;
+                    bool isNum;
                     do
                     {
                         Console.WriteLine("Enter Number of Times at Bat");
-                        bool isNum = validate(0, 60, Console.ReadLine(), out atBats);
+                        isNum = validate(0, 60, Console.ReadLine(), out atBats);
 
-                    } while (false);
+                    } while (!isNum);
 
                     int[] aBs = new int[atBats];
                     int currentBat = 0;
@@ -46,8 +47,8 @@ namespace Lab8
 
                     double battingPercentage, sluggingPercentage;
                     battingStatistics(aBs, out battingPercentage, out sluggingPercentage);
-                    Console.WriteLine("Batting Percentage: {0}", battingPercentage.ToString("0.###"));
-                    Console.WriteLine("Slugging Percentage: {0}", sluggingPercentage.ToString("0.###") + Environment.NewLine);
+                    Console.WriteLine("Batting Percentage: {0}", battingPercentage.ToString("0.000"));
+                    Console.WriteLine("Slugging Percentage: {0}", sluggingPercentage.ToString("0.000") + Environment.NewLine);
                     Console.WriteLine("Continue With Another Batter (Y/N?)");
                     string answer = Console.ReadLine().ToLower();
                     continueOn = answer == "y" ? true : false;
